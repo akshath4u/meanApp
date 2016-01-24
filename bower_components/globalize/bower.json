@@ -1,0 +1,17 @@
+{
+  "name": "globalize",
+  "version": "0.1.0",
+  "authors": [
+    "akshath4u <akshath@baabte.com>"
+  ],
+  "description": "custom globalize for dx",
+  "main": "globalize.min.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
