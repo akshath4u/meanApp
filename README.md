@@ -1,6 +1,6 @@
 # meanApp
 
-First install dev tools using below command for running this app 
+First you should install nodejs and npm in your pc then install dev tools using below command for running this app 
 
    'sudo npm install -g grunt-cli bower'
    
