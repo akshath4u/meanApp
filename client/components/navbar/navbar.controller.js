@@ -11,6 +11,9 @@ angular.module('meanAppApp')
     },{
       'title': 'Report',
       'link': '/main/report'
+    },{
+      'title': 'Payment',
+      'link': '/main/payment'
     }];
 
     $scope.isCollapsed = true;
