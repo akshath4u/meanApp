@@ -1,98 +1,96 @@
 <div class="wrapper-md">
   <div class="panel panel-default">
-    <div class="panel-heading">
-      Users List
-    </div>
-    <div class="row" ng-show="userCtrl.loader">
-      <div class="col-xs-12 text-center">
-        <i class="fa fa-refresh fa-spin  fa-3x fa-fw text-center-xs"></i>
-      </div>
-    </div>
-    <div class="row wrapper">
-      <div class="col-sm-5 m-b-xs">
-        <button class="btn btn-sm btn-default" ng-click="userCtrl.open(1,'register')"><i class="fa fa-user"></i> Register</button>                
-      </div>
-      <div class="col-sm-5 pull-right">
-      	<div class="form-group">
-	      <div class="input-group">
-	        <div class="input-group-addon"><i class="fa fa-search"></i></div>
-	        <input type="text" class="form-control" placeholder="Search User" ng-model="userCtrl.searchUser">
-	      </div>      
-	    </div>
-      </div>
+        <div class="panel-heading">
+            Users List
+        </div>
+        <div class="row" ng-show="userCtrl.loader">
+            <div class="col-xs-12 text-center">
+                <i class="fa fa-refresh fa-spin  fa-3x fa-fw text-center-xs"></i>
+            </div>
+        </div>
+        <div class="row wrapper">
+        <div class="col-sm-5 m-b-xs">
+            <button class="btn btn-sm btn-default" ng-click="userCtrl.open(1,'register')"><i class="fa fa-user"></i> Register</button>                
+        </div>
+        <div class="col-sm-5 pull-right">
+            <div class="form-group">
+            <div class="input-group">
+                <div class="input-group-addon"><i class="fa fa-search"></i></div>
+                <input type="text" class="form-control" placeholder="Search User" ng-model="userCtrl.searchUser" ng-change="userCtrl.fetchUsers()" ng-model-options="{debounce: 1000}">
+            </div>      
+            </div>
+        </div>
     </div>
 
     <div class="table-responsive">
-      <table class="table table-striped b-t b-light">
-        <thead>
-          <tr>
-            <th style="width:20px;">
-            </th>
+        <table class="table table-striped b-t b-light">
+            <thead>
+                <tr>
+                    <th style="width:20px;">
+                    </th>
 
-            <th>
-            	<a href="#" ng-click="userCtrl.sortType = 'name'; userCtrl.sortReverse = !userCtrl.sortReverse">
-          		Name
-	            <span ng-show="userCtrl.sortType == 'name' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
-	            <span ng-show="userCtrl.sortType == 'name' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
-	          </a>
-	        </th>
-            <th>
-            	<a href="#" ng-click="userCtrl.sortType = 'mobile'; userCtrl.sortReverse = !userCtrl.sortReverse">
-          		Mobile
-	            <span ng-show="userCtrl.sortType == 'mobile' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
-	            <span ng-show="userCtrl.sortType == 'mobile' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
-	          </a>
-	        </th>
-            <th>
-            	<a href="#" ng-click="userCtrl.sortType = 'phone'; userCtrl.sortReverse = !userCtrl.sortReverse">
-          		Phone
-	            <span ng-show="userCtrl.sortType == 'phone' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
-	            <span ng-show="userCtrl.sortType == 'phone' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
-	          </a></th>
-            <th>
-            	<a href="#" ng-click="userCtrl.sortType = 'email'; userCtrl.sortReverse = !userCtrl.sortReverse">
-          		Email
-	            <span ng-show="userCtrl.sortType == 'email' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
-	            <span ng-show="userCtrl.sortType == 'email' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
-	          </a></th>
-            <th>
-            	<a href="#" ng-click="userCtrl.sortType = 'dob'; userCtrl.sortReverse = !userCtrl.sortReverse">
-          		DOB
-	            <span ng-show="userCtrl.sortType == 'dob' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
-	            <span ng-show="userCtrl.sortType == 'dob' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
-	          </a></th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr dir-paginate="user in userCtrl.userList | orderBy: userCtrl.sortType:userCtrl.sortReverse  | itemsPerPage: 5 | filter:userCtrl.searchUser">
-            <td><!-- <label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label> --></td>
-            <td>{{user.name}}</td>
-            <td>{{user.mobile}}</td>
-            <td>{{user.phone}}</td>
-            <td>{{user.email}}</td>
-            <td>{{user.dob | cmdate:'MM/dd/yyyy' }}</td>
-            <td>
-
-              <button type="button" ng-click="userCtrl.deleteConfirm(user)" class="btn btn-xs btn-default pull-right m-r-xs" tabindex="0">
-                <i class="fa fa-times"></i>
-              <button type="button" ng-click="userCtrl.open(user,'edit')" class="btn btn-xs btn-default pull-right m-r-xs" tabindex="0">
-                <i class="fa fa-edit"></i>
-              </button>
-              </button>
-            </td>
-          </tr>
-          
-        </tbody>
-      </table>
+                    <th>
+                        <a href="#" ng-click="userCtrl.sortType = 'name'; userCtrl.sortReverse = !userCtrl.sortReverse">
+                        Name
+                        <span ng-show="userCtrl.sortType == 'name' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="userCtrl.sortType == 'name' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                    </th>
+                    <th>
+                        <a href="#" ng-click="userCtrl.sortType = 'mobile'; userCtrl.sortReverse = !userCtrl.sortReverse">
+                        Mobile
+                        <span ng-show="userCtrl.sortType == 'mobile' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="userCtrl.sortType == 'mobile' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
+                    </a>
+                    </th>
+                    <th>
+                        <a href="#" ng-click="userCtrl.sortType = 'phone'; userCtrl.sortReverse = !userCtrl.sortReverse">
+                        Phone
+                        <span ng-show="userCtrl.sortType == 'phone' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="userCtrl.sortType == 'phone' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
+                    </a></th>
+                    <th>
+                        <a href="#" ng-click="userCtrl.sortType = 'email'; userCtrl.sortReverse = !userCtrl.sortReverse">
+                        Email
+                        <span ng-show="userCtrl.sortType == 'email' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="userCtrl.sortType == 'email' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
+                    </a></th>
+                    <th>
+                        <a href="#" ng-click="userCtrl.sortType = 'dob'; userCtrl.sortReverse = !userCtrl.sortReverse">
+                        DOB
+                        <span ng-show="userCtrl.sortType == 'dob' && !userCtrl.sortReverse" class="fa fa-caret-down"></span>
+                        <span ng-show="userCtrl.sortType == 'dob' && userCtrl.sortReverse" class="fa fa-caret-up"></span>
+                    </a></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr dir-paginate="user in userCtrl.userList | orderBy: userCtrl.sortType:userCtrl.sortReverse  | itemsPerPage: 5">
+                    <td><!-- <label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label> --></td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.mobile}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.dob | cmdate:'MM/dd/yyyy' }}</td>
+                    <td>
+                        <button type="button" ng-click="userCtrl.deleteConfirm(user)" class="btn btn-xs btn-default pull-right m-r-xs" tabindex="0">
+                            <i class="fa fa-times"></i>
+                        <button type="button" ng-click="userCtrl.open(user,'edit')" class="btn btn-xs btn-default pull-right m-r-xs" tabindex="0">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 
     <footer class="panel-footer">
-      <div class="row">
-        <div class="col-xs-6 left-left">
-          <dir-pagination-controls ></dir-pagination-controls>
+        <div class="row">
+            <div class="col-xs-6 left-left">
+                <dir-pagination-controls ></dir-pagination-controls>
+            </div>
         </div>
-      </div>
     </footer>
   </div>
 </div>

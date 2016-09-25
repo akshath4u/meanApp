@@ -1,79 +1,73 @@
-  <div class="modal-header">
-        <h4 class="modal-title" ng-if="userCtrl.selectedUser.type!='edit'">Register User</h4>
-        <h4 class="modal-title" ng-if="userCtrl.selectedUser.type=='edit'">Edit User</h4>
-  </div> 
-  <div class="modal-body">
-      <form name="form" class="form-validation form-horizontal">
-      <!-- <div class="panel panel-default"> -->
-<!--       <div class="panel-heading">
-        <span class="h4">Register</span>
-      </div> -->
-      <!-- <div class="panel-body"> -->
-          <div class="form-group">
+<div class="modal-header">
+    <h4 class="modal-title" ng-if="userCtrl.selectedUser.type!='edit'">Register User</h4>
+    <h4 class="modal-title" ng-if="userCtrl.selectedUser.type=='edit'">Edit User</h4>
+</div> 
+<div class="modal-body">
+    <form name="form" class="form-validation form-horizontal">
+        <div class="form-group">
             <label class="col-lg-3 control-label">Name</label>
             <div class="col-lg-7">
-              <input type="text" class="form-control" ng-model="userCtrl.user.name" required placeholder="Customer Name" name="name">
-              <!-- <span ng-hide="form.fname.$invalid" class="help-block m-b-none">Please enter first name.</span> -->
+            <input type="text" class="form-control" ng-model="userCtrl.user.name" required placeholder="Customer Name" name="name">
+                <span ng-show="form.name.$invalid  && !form.name.$pristine" class="help-block m-b-none">Please enter name.</span> 
             </div>
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label class="col-lg-3 control-label">Mobile</label>
             <div class="col-lg-7">
-              <input type="text" class="form-control" ng-model="userCtrl.user.mobile" required placeholder="Mobile" name="mobile">
-             <!--  <span ng-show="form.lname.$invalid" class="help-block m-b-none">Please enter last name here.</span> -->
+            <input type="text" class="form-control" ng-model="userCtrl.user.mobile" required placeholder="Mobile" name="mobile">
+            <span ng-show="form.mobile.$invalid  && !form.mobile.$pristine" class="help-block m-b-none">Please enter mobile.</span> 
             </div>
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label class="col-lg-3 control-label">Phone</label>
             <div class="col-lg-7">
-              <input type="text" class="form-control" placeholder="(XXX) XXXX XXX" ng-model="userCtrl.user.phone" name="phone" required >
+            <input type="text" class="form-control" placeholder="(XXX) XXXX XXX" ng-model="userCtrl.user.phone" name="phone" >
             </div>
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label class="col-lg-3 control-label">Email</label>
             <div class="col-lg-7">
-              <input type="text" class="form-control" ng-disabled="userCtrl.selectedUser.type=='edit'" placeholder="example@example.com" ng-model="userCtrl.user.email" required >
-              <!-- <span ng-hide="form.email.$invalid" class="help-block m-b-none">Please enter email here.</span> -->
+            <input type="text" class="form-control" ng-disabled="userCtrl.selectedUser.type=='edit'" placeholder="example@example.com" ng-model="userCtrl.user.email" name="email" required >
+            <span ng-show="form.email.$invalid  && !form.email.$pristine" class="help-block m-b-none">Please enter email.</span> 
             </div>
-         
-          </div>
-          <div class="form-group">
+        
+        </div>
+        <div class="form-group">
             <label class="col-lg-3 control-label">DOB</label>
             <div class="col-lg-7">
-              <input type="date" class="form-control" placeholder="Date of birth" ng-model="userCtrl.user.dob" name="dob" required >
+            <input type="date" class="form-control" placeholder="Date of birth" ng-model="userCtrl.user.dob" name="dob">
             </div>
-          </div>
-          <div class="form-group">
-          <label class="col-lg-3 control-label">Flat</label>
-          <div class="col-lg-7">
-            <input type="text" class="form-control" placeholder="Flat" ng-model="userCtrl.user.address[0].flat" name="flat" required >
-          </div>
-          </div>
-          <div class="form-group">
-          <label class="col-lg-3 control-label">Street</label>
-          <div class="col-lg-7">
-            <input type="text" class="form-control" placeholder="Street" ng-model="userCtrl.user.address[0].street" name="street" required >
-          </div>
-          </div>
-          <div class="form-group">
-          <label class="col-lg-3 control-label">State</label>
-          <div class="col-lg-7">
-            <input type="text" class="form-control" placeholder="State" ng-model="userCtrl.user.address[0].state" name="state" required >
-          </div>
-          </div>
-          <div class="form-group">
-          <label class="col-lg-3 control-label">PinCode</label>
-          <div class="col-lg-7">
+        </div>
+        <div class="form-group">
+        <label class="col-lg-3 control-label">Flat</label>
+        <div class="col-lg-7">
+            <input type="text" class="form-control" placeholder="Flat" ng-model="userCtrl.user.address[0].flat" name="flat">
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="col-lg-3 control-label">Street</label>
+        <div class="col-lg-7">
+            <input type="text" class="form-control" placeholder="Street" ng-model="userCtrl.user.address[0].street" name="street">
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="col-lg-3 control-label">State</label>
+        <div class="col-lg-7">
+            <input type="text" class="form-control" placeholder="State" ng-model="userCtrl.user.address[0].state" name="state" >
+        </div>
+        </div>
+        <div class="form-group">
+        <label class="col-lg-3 control-label">PinCode</label>
+        <div class="col-lg-7">
             <input type="text" class="form-control" placeholder="PinCode" ng-model="userCtrl.user.address[0].pinCode" name="pinCode" required >
-          </div>
-          </div>
-    </div> 
-  </form>
-     
-  </div>
- <div class="modal-footer">
-      <button class="btn btn-primary" type="button" ng-click="userCtrl.register()" ng-disabled="form.$invalid" ng-if="userCtrl.selectedUser.type!='edit'"><i class="fa fa-save "></i> Register</button>
-      <button class="btn btn-primary" type="button" ng-click="userCtrl.update()" ng-disabled="form.$invalid" ng-if="userCtrl.selectedUser.type=='edit'"><i class="fa fa-save "></i> Update</button>
-      <button class="btn btn-primary" type="button" ng-click="userCtrl.cancel()"><i class="fa fa-times"></i> Cancel</button>
-  </div>
+            <span ng-show="form.address[0].pinCode.$invalid  && !form.address[0].pinCode.$pristine" class="help-block m-b-none">Please enter pincode.</span> 
+        </div>
+        </div>
+    </form>
+</div> 
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="userCtrl.register()" ng-disabled="form.$invalid" ng-if="userCtrl.selectedUser.type!='edit'"><i class="fa fa-save "></i> Register</button>
+    <button class="btn btn-primary" type="button" ng-click="userCtrl.update()" ng-disabled="form.$invalid" ng-if="userCtrl.selectedUser.type=='edit'"><i class="fa fa-save "></i> Update</button>
+    <button class="btn btn-primary" type="button" ng-click="userCtrl.cancel()"><i class="fa fa-times"></i> Cancel</button>
+</div>
 
